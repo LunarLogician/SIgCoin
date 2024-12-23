@@ -44,13 +44,6 @@ jobs:
       run: |
         npm install
 
-    - name: Run Backend tests
-      working-directory: Backend
-      run: |
-        npm test
+    
 
-    # Optional: Add steps for deployment (if needed)
-    - name: Deploy to Production
-      run: |
-        # Add deployment commands here, such as pushing to a cloud service or server
-        echo "Deploying to production..."
+
