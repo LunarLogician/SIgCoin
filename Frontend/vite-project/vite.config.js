@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      external: ['react-router-dom'],  // Externalize react-router-dom if it's not bundled correctly
+      external: ['react-router-dom', 'axios'],  // Externalize both react-router-dom and axios
     },
   },
 })
