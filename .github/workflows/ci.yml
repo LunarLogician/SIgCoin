@@ -3,17 +3,17 @@ name: Full Project CI/CD Workflow
 on:
   push:
     branches:
-      - main  # You can specify other branches if needed
+      - main  # Trigger on push to main branch
   pull_request:
     branches:
-      - main
+      - main  # Trigger on pull requests to the main branch
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    # Checkout the code
+    # Checkout the code from GitHub repository
     - name: Checkout code
       uses: actions/checkout@v2
 
@@ -21,7 +21,7 @@ jobs:
     - name: Set up Node.js for Frontend
       uses: actions/setup-node@v2
       with:
-        node-version: '17'
+        node-version: '18'  # Use Node.js v18 for frontend
 
     - name: Install dependencies for Frontend
       working-directory: Frontend/vite-project
@@ -37,7 +37,7 @@ jobs:
     - name: Set up Node.js for Backend
       uses: actions/setup-node@v2
       with:
-        node-version: '17'
+        node-version: '18'  # Use Node.js v18 for backend
 
     - name: Install dependencies for Backend
       working-directory: Backend
@@ -48,3 +48,9 @@ jobs:
       working-directory: Backend
       run: |
         npm test
+
+    # Optional: Add steps for deployment (if needed)
+    - name: Deploy to Production
+      run: |
+        # Add deployment commands here, such as pushing to a cloud service or server
+        echo "Deploying to production..."
