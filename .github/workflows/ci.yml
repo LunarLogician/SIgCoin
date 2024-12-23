@@ -21,7 +21,7 @@ jobs:
     - name: Set up Node.js for Frontend
       uses: actions/setup-node@v2
       with:
-        node-version: '16'
+        node-version: '17'
 
     - name: Install dependencies for Frontend
       working-directory: Frontend/vite-project
@@ -37,7 +37,7 @@ jobs:
     - name: Set up Node.js for Backend
       uses: actions/setup-node@v2
       with:
-        node-version: '16'
+        node-version: '17'
 
     - name: Install dependencies for Backend
       working-directory: Backend
