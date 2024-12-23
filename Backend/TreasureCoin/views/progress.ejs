@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mining Progress</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Include your CSS file here -->
+    <style>
+        .container {
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.progress-details {
+    margin: 20px 0;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 25px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress {
+    height: 20px;
+    background-color: #4caf50;
+    text-align: center;
+    color: white;
+    line-height: 20px;
+    border-radius: 25px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mining Progress</h1>
+        
+        <% if (session) { %>
+            <div class="progress-details">
+                <p><strong>Mining Duration:</strong> <%= Math.floor(miningDuration / 60) %> minutes</p>
+                <p><strong>Progress towards next reward:</strong> <%= percentageCompleted %>%</p>
+                <p><strong>Total Coins Mined:</strong> <%= totalCoinsMined %></p>
+                
+                <div class="progress-bar">
+                    <div class="progress" style="width: <%= percentageCompleted %>%;">
+                        <span><%= percentageCompleted %>% Completed</span>
+                    </div>
+                </div>
+            </div>
+        <% } else { %>
+            <p>No active mining session found.</p>
+        <% } %>
+    </div>
+</body>
+</html>

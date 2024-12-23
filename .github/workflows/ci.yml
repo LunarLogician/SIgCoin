@@ -1,0 +1,50 @@
+name: Full Project CI/CD Workflow
+
+on:
+  push:
+    branches:
+      - main  # You can specify other branches if needed
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout the code
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    # Frontend CI
+    - name: Set up Node.js for Frontend
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+
+    - name: Install dependencies for Frontend
+      working-directory: Frontend/vite-project
+      run: |
+        npm install
+
+    - name: Build the Frontend
+      working-directory: Frontend/vite-project
+      run: |
+        npm run build
+
+    # Backend CI
+    - name: Set up Node.js for Backend
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+
+    - name: Install dependencies for Backend
+      working-directory: Backend
+      run: |
+        npm install
+
+    - name: Run Backend tests
+      working-directory: Backend
+      run: |
+        npm test

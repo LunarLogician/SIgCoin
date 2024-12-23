@@ -1,0 +1,27 @@
+.mining-progress-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    border: 1px solid #ffd700;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+  }
+  
+  .relative.bg-gray-700 {
+    position: relative;
+  }
+  
+  .status {
+    font-size: 18px;
+  }
+  
+  h1 {
+    font-size: 32px;
+    color: yellow;
+    font-weight: bold;
+  }
+  
+  .mining-progress-container p {
+    color: yellow;
+  }
+  
